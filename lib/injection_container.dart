@@ -1,7 +1,6 @@
 import 'package:flutter_todo_bloc/data/network/rest_api_service.dart';
 import 'package:flutter_todo_bloc/data/repository/user_repository.dart';
 import 'package:flutter_todo_bloc/data/storage/local_storage_service.dart';
-import 'package:flutter_todo_bloc/main_bloc.dart';
 import 'package:flutter_todo_bloc/ui/authentication/bloc/login_page_bloc.dart';
 import 'package:flutter_todo_bloc/ui/authentication/bloc/registration_page_bloc.dart';
 import 'package:flutter_todo_bloc/ui/todo_list/todo_list_bloc.dart';
@@ -38,12 +37,6 @@ void initKiwi() {
   );
 
   ///Register Blocs for each feature.
-  container.registerFactory(
-        (c) => MainBloc(
-      c.resolve<UserRepository>(),
-    ),
-  );
-
   container.registerFactory(
     (c) => LoginBloc(
       c.resolve<UserRepository>(),
